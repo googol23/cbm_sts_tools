@@ -12,12 +12,12 @@ from multiprocessing import Pool, cpu_count, current_process
 import mplhep
 mplhep.style.use("ATLAS")
 
-from src.fit_err_fnc import fit_s_curve
-from src.fit_err_fnc import err_func
+from pscan.fit_err_fnc import fit_s_curve
+from pscan.fit_err_fnc import err_func
 
-from src.plotting import plot_s_curve
-from src.plotting import plot_linear_fit
-from src.plotting import plot_histogram
+from pscan.plotting import plot_s_curve
+from pscan.plotting import plot_linear_fit
+from pscan.plotting import plot_histogram
 
 
 from tabulate import tabulate
@@ -97,7 +97,7 @@ logger.propagate = False
 
 logger.info("Loading rules ...")
 import inspect
-import src.rule_set as rule_set
+import pscan.rule_set as rule_set
 # Get all functions defined in that module
 rules = {
     name: obj
