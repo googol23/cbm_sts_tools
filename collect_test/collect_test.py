@@ -3,11 +3,12 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Iterator
 
-import sts_naming
+from utils import sts_naming
 
 # cbmstsgw02
 # stsdcs03
 # TEST_RESULT_PATH="/home/cbm/cbmsoft/emu_test_module_arr/python/module_files"
+
 TEST_RESULT_PATH = "test_result/"
 CHANNEL_MASK_FILE = "channel_mask.txt"
 ADDRESS_DUMP_FILE = "STS_NAME_TO_ADDRESS_DUMP.dump"
@@ -158,7 +159,7 @@ if __name__ == "__main__":
             raise ValueError(f"Directory does not exist: {root}")
 
         paths = list(root.rglob("module_test_*.txt"))
-        print(f"Foun {len(paths)} test file to be collected...")
+        print(f"Found {len(paths)} test file to be collected...")
         print("Starting processing files ...")
 
         with ThreadPoolExecutor(max_workers=32) as executor:

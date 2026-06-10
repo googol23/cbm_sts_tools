@@ -28,27 +28,10 @@ LADDER_NAME_PATTERN = re.compile(
     r"$"  # End
 )
 
-# MODULE TESTING
-# test_result/L7DR400022/M7DR4B4000224A2/pscan_files/
-MODULE_TEST_FILE_PATTERN = re.compile(r"^module_test_(.+)\.txt$")
-
 
 def is_valid_label(label: str, pattern: re.Pattern) -> bool:
     """
     Validate a label according to the required format.
-
-    Expected format (16 characters total):
-
-        Position 1  : 'M'
-        Position 2  : digit (0-9)
-        Position 3  : 'D' or 'U'
-        Position 4  : 'R' or 'L'
-        Position 5  : digit (0-9)
-        Position 6  : 'T' or 'B'
-        Position 7-16 : digits (0-9)
-
-    Example of a valid label:
-        M4DR5T2000182B2
 
     Parameters
     ----------
@@ -63,7 +46,6 @@ def is_valid_label(label: str, pattern: re.Pattern) -> bool:
     """
     return bool(pattern.fullmatch(label))
 
-
 def is_valid_module_name(label: str) -> bool:
     return (
         len(label) == 15
@@ -74,11 +56,49 @@ def is_valid_module_name(label: str) -> bool:
         and label[4].isdigit()
         and label[5] in "TB"
         and label[6:12].isdigit()
-        and label[12].isdigit()
         and label[13] in "ABCD"
         and label[14].isdigit()
     )
+# M0DL0B3001503B2
+LADDER_VERSION = [
+    "STS8",
+    "STS3_5",
+]
+def patch_ladder_name(ladder_name: str, version:str = "STS3_5") -> str | None:
+    """
+        It transform the ladder name to a consistent naming for the STS3_5
 
+        Raises: Value error under:
+            - invalid ladder name 
+            - invalid ladder name version
+    """
+    
+    if not is_valid_label(ladder_name, LADDER_NAME_PATTERN):
+        raise ValueError(f"Invalid ladder name: {ladder_name}")
+
+    if version not in LADDER_VERSION:
+        raise ValueError(f"Unknow ladder version: {version} not in {LADDER_VERSION}")
+
+    if version == "STS8":
+        return ladder_name
+   
+    if version == "STS3_5":
+        unit_index = int(ladder_name[1])
+        unit_face = ladder_name[2]
+        
+        if (unit_index == 3 and unit_face == "D") or unit_index > 3:
+            new_index = unit_index + 1
+            return ladder_name[0] + str(new_index) + ladder_name[2:]
+        return ladder_name
+
+def check_ladder_names(yaml_data) -> bool:
+    for entry in yaml_data.get("types", []):
+        name = list(entry.keys())[0]
+        if name.startswith("L3D") or name.startswith("L4U"):
+            raise ValueError(
+                f"Invalid ladder name: {name}. Old unit 3 was broken down into 3U and 4D."
+            )
+    return True
 
 def make_sts_address(
     unit: int,
@@ -124,10 +144,7 @@ def make_sts_address(
     # keep lower 4 bytes
     return address & 0xFFFFFFFF
 
-
 STS_NAME_TO_ADDRESS_DUMP = {}
-
-
 def convert_to_cbm_sts_address(module_name: str, version: int = 1) -> int:
     """
     Parse STS module names
