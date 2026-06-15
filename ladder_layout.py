@@ -26,7 +26,7 @@ class LadderLayout:
     sensor_types: list[SensorType]
     cutout_size: float = 0
     length:float = 0
-    
+
     @property
     def n_sensors(self)->int:
         return len(self.sensor_types)
@@ -47,6 +47,7 @@ class LadderLayout:
         
         positions_y =  np.empty(shape=(self.n_sensors), dtype=np.float32)
         offset_y = 0.5 * self.cutout_size + 0.5*SENSOR_OVERLAP_MM if self.cutout_size > 0.2 else 0
+
         for idx in range(int(0.5*self.n_sensors)):
             y = offset_y + 0.5 * (sizes_t[idx][1] - SENSOR_OVERLAP_MM)
             offset_y = y + 0.5 * (sizes_t[idx][1] - SENSOR_OVERLAP_MM)
@@ -56,19 +57,35 @@ class LadderLayout:
             
         positions_y.sort()
         return positions_y
+
+    def sensor_bbox(self) -> np.ndarray:
+        sizes = self.sensors_size_xy()
+        positions_y = self.sensor_positions()
     
+        bboxes = np.empty((self.n_sensors, 4), dtype=np.float32)
+    
+        for i, (y, (w, h)) in enumerate(zip(positions_y, sizes)):
+            x_min = -0.5 * w
+            x_max =  0.5 * w
+            y_min = y - 0.5 * h
+            y_max = y + 0.5 * h
+    
+            bboxes[i] = [x_min, x_max, y_min, y_max]
+    
+        return bboxes
+        
     def draw(self) -> None:
         """
         Draw the ladder layout.
         """
         # Constants
-        PLOT_DPI = 300
+        PLOT_DPI = 600
                     
         aspect_ratio = self.ladder_size_xy[1] / self.ladder_size_xy[0]
         
         # Create figure with proper dimensions
         fig_width_pxl = 3000  # Base width in inches
-        fig_height_pxl = fig_width_pxl * aspect_ratio
+        fig_height_pxl = fig_width_pxl / aspect_ratio
         fig = plt.figure(figsize=(fig_width_pxl / PLOT_DPI, fig_height_pxl / PLOT_DPI), dpi=PLOT_DPI)
         plt.rcParams['axes.axisbelow'] = True
 
@@ -80,10 +97,10 @@ class LadderLayout:
         ax.grid(True, which='both', color='gray', linestyle='--', linewidth=0.5, zorder=0)
         
         for spine in ax.spines.values():
-            spine.set_linewidth(3)
+            spine.set_linewidth(0.0001 * fig_height_pxl)
         
         ax.tick_params(
-            direction='in',      # ticks point inward
+            direction='out',      # ticks point inward
             length=6, width=1,   # optional tick size
             top=True,         # ticks on top
             right=True,       # ticks on right
@@ -91,7 +108,7 @@ class LadderLayout:
             labeltop=True,      # x-axis labels on top
             labelleft=True,      # y-axis labels on left
             labelright=True,    # y-axis labels on right
-            pad=-30              # negative padding moves labels inward
+            # pad=30              # negative padding moves labels inward
         )
                 
         sizes = self.sensors_size_xy()
@@ -237,9 +254,4 @@ def generate_ladders_layout() -> dict[str, list[str]]:
         
 if __name__ == "__main__":
     generate_ladders_layout()
-    
-    # l = ladder_layout(ladder_list[0])
-    # l.draw()
-    # plt.savefig("test.png")
-    # print(l.ladder_size_xy)
     
