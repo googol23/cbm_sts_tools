@@ -1,6 +1,11 @@
 import re
 from pathlib import Path
 
+NAMING_VERSION = [
+    "STS8",
+    "STS3_5",
+]
+
 # Compiled once for efficiency
 # i.e. M7UR2T3011393A2
 MODULE_NAME_PATTERN = re.compile(
@@ -28,6 +33,31 @@ LADDER_NAME_PATTERN = re.compile(
     r"$"  # End
 )
 
+def build_module_name_prefix(
+    unit:int,
+    face:str,
+    side:str,
+    ladder:int,
+    halfladder:str,
+    index:int,
+    version:str | None = "STS3_5" 
+) -> str | None:
+    
+    if version not in NAMING_VERSION:
+        print(f"Unknow naming version: falling back to latest {NAMING_VERSION[-1]}")
+
+    if version == "STS8":
+        return f"M{unit}{face}{side}{ladder}{halfladder}{index}"
+
+    if version == "STS3_5":
+        if (unit == 3 and face == "D") or unit > 3:
+            return f"M{unit+1}{face}{side}{ladder}{halfladder}{index}"
+        else:
+            return f"M{unit}{face}{side}{ladder}{halfladder}{index}"
+
+    return None
+        
+        
 
 def is_valid_label(label: str, pattern: re.Pattern) -> bool:
     """
@@ -59,11 +89,7 @@ def is_valid_module_name(label: str) -> bool:
         and label[13] in "ABCD"
         and label[14].isdigit()
     )
-# M0DL0B3001503B2
-LADDER_VERSION = [
-    "STS8",
-    "STS3_5",
-]
+
 def patch_ladder_name(ladder_name: str, version:str = "STS3_5") -> str | None:
     """
         It transform the ladder name to a consistent naming for the STS3_5
@@ -76,8 +102,8 @@ def patch_ladder_name(ladder_name: str, version:str = "STS3_5") -> str | None:
     if not is_valid_label(ladder_name, LADDER_NAME_PATTERN):
         raise ValueError(f"Invalid ladder name: {ladder_name}")
 
-    if version not in LADDER_VERSION:
-        raise ValueError(f"Unknow ladder version: {version} not in {LADDER_VERSION}")
+    if version not in NAMING_VERSION:
+        raise ValueError(f"Unknow ladder version: {version} not in {NAMING_VERSION}")
 
     if version == "STS8":
         return ladder_name
