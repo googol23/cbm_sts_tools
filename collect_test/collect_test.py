@@ -1,7 +1,12 @@
+from dataclasses import dataclass
 import re
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-from typing import Iterator
+from typing import Iterator, Any, Callable
+
+
+
+from .module_test import ModuleTestResult
 
 from utils import sts_naming
 
@@ -12,44 +17,6 @@ from utils import sts_naming
 TEST_RESULT_PATH = "test_result/"
 CHANNEL_MASK_FILE = "channel_mask.txt"
 ADDRESS_DUMP_FILE = "STS_NAME_TO_ADDRESS_DUMP.dump"
-
-def proccess_module_test_file(in_file: str) -> list[int]:
-    """This method scans the module test output file (ASCI)
-    it looks for the faulty channel list lines and collect the channel numbers
-
-    channels for n-side has direct mapping
-    channels for p-side are calculated as 1024 - channel_id
-
-    Each faulty channel in the list contains information about the cuase encluse in '( )'
-    This part is stripped away to collect the channel id
-
-    return: a list of int, mapped to the module channels (0-2047)
-    """
-    pattern = "LIST_BROKEN_CHANNELS"
-    faulty_channels = []
-
-    with open(in_file) as file:
-        lines = file.readlines()
-
-        for line in lines:
-            if pattern not in line:
-                continue
-
-            info, values = line.strip().split(":")
-
-            if len(values.strip()) == 0:
-                continue
-
-            channels_id = [
-                int(v.split("(")[0].strip()) for v in values.split(",") if len(v) != 0
-            ]
-            if "P-side" in info:
-                channels_id = [2047 - chn for chn in channels_id]
-
-            faulty_channels.extend(channels_id)
-
-    return faulty_channels
-
 
 def find_module_test_files(
     root_dir: str,
@@ -105,9 +72,8 @@ def find_module_test_files(
                 print("Unexpected test file name:", path.name, module_name_in_test_file)
 
             yield str(path)
-
-
-def process(path: Path) -> None | tuple[int,list[int]]:
+         
+def process(path: Path) -> None | tuple[int, ModuleTestResult | None]:
     # print(f"Check {path}\n...")
     """
         Process a single test file
@@ -145,9 +111,15 @@ def process(path: Path) -> None | tuple[int,list[int]]:
     file_path = str(path)
     module_name = file_path.split("/")[-1].split("_")[-1].split(".")[0]
     cbm_sts_address = sts_naming.convert_to_cbm_sts_address(module_name)
-    faulty_channels = proccess_module_test_file(file_path)
 
-    return cbm_sts_address, faulty_channels
+    try:
+        module_test_result = ModuleTestResult.from_file(file_path)
+    except Exception as e:
+        print(f"{e}. Discarding file")
+        
+        module_test_result = None
+
+    return cbm_sts_address, module_test_result
 
 
 if __name__ == "__main__":
@@ -166,13 +138,20 @@ if __name__ == "__main__":
             results = executor.map(process, paths)
 
         print("Writing channel mask to {CHANNEL_MASK_FILE}")
-        with open(CHANNEL_MASK_FILE, "w") as o_file:
+        with open(CHANNEL_MASK_FILE, "w") as channel_mask_file:
             for res in results:
                 if res is None:
                     continue
-                address, faulty_channels = res
+                address, module_test_result = res
+
+                if module_test_result is None:
+                    continue
+
+                faulty_channels = [chn for chn in module_test_result.list_broken_channels_n_side]
+                faulty_channels.extend([2047 - chn for chn in module_test_result.list_broken_channels_p_side])
+
                 for chn in faulty_channels:
-                    o_file.write(f"{address} {chn}\n")
+                    channel_mask_file.write(f"{address} {chn}\n")
 
         print(f"Dumping address building to: {ADDRESS_DUMP_FILE}")
         with open(ADDRESS_DUMP_FILE, "w") as dump:
