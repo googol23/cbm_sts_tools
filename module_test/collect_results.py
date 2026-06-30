@@ -9,10 +9,43 @@ from io import StringIO
 from pathlib import Path
 from typing import Any, Callable, Iterator
 
+from datetime import datetime
+import logging
+
+log_dir = Path("log/")
+log_dir.mkdir(exist_ok=True)
+
+logger = logging.getLogger("CollectResults")
+logger.setLevel(logging.DEBUG)
+logger.handlers.clear()
+
+formatter = logging.Formatter(
+    "%(asctime)s %(levelname)-8s %(message)s"
+)
+
+# timestamp prefix for file name
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+log_file = log_dir / f"{timestamp}_collect_result.log"
+
+# File: DEBUG and above
+file_handler = logging.FileHandler(log_file)
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(formatter)
+
+# Terminal: INFO and above
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
 from utils import sts_naming
 
-from .build_index import db_module_test_files, init_db
+from .index_builder import get_all_files, init_db
 from .module_test import ModuleTestResult, ValueErrorUnit
+
+
 
 # cbmstsgw02
 # stsdcs03
@@ -55,7 +88,7 @@ def serve_sshfs(host: str, remote_path: str, mount_point: str = "test_result") -
     )
 
     if result.returncode == 0:
-        print("Mount point is busy!!!")
+        logger.info("Mount point is busy!!!")
         return Path(mount_point)
 
     # Mount it
@@ -79,66 +112,6 @@ def serve_sshfs(host: str, remote_path: str, mount_point: str = "test_result") -
 
     return Path(mount_point)
 
-
-def find_module_test_files(
-    root_dir: str,
-) -> list[Path]:
-    """
-    Recursively search for files matching:
-        module_test_<MODULE_NAME>.txt
-
-    Parameters
-    ----------
-    root_dir : str
-        Root directory to start searching from.
-
-    Returns
-    ------
-    list[str]
-        list containing files for full path matching.
-    """
-    root = Path(root_dir)
-
-    if not root.exists():
-        raise ValueError(f"Directory does not exist: {root_dir}")
-
-    valid_test_files = []
-    for path in root.rglob("module_test_*.txt"):
-        # print(0, path)
-        if not path.is_file():
-            continue
-
-        try:
-            # print(1, path)
-            relative = path.relative_to(root).as_posix()
-        except ValueError:
-            continue
-
-        # print(2, path)
-        match = PATH_PATTERN.fullmatch(relative)
-        if match is None:
-            continue
-
-        # print(3, path)
-        # Ensure the module name in the directory matches the filename.
-        if match["module"] != match["module_file"]:
-            continue
-
-        # Final validity check
-        ladder_name = match["ladder"]
-        module_name = match["module"]
-        if not sts_naming.is_valid_module_name(module_name):
-            continue
-
-        if not sts_naming.is_valid_label(ladder_name, sts_naming.LADDER_NAME_PATTERN):
-            continue
-
-        print(4, path)
-        valid_test_files.append(path)
-
-    return valid_test_files
-
-
 def process(path: str | Path) -> None | tuple[int, ModuleTestResult | None]:
     """
     Process a single test file
@@ -153,10 +126,10 @@ def process(path: str | Path) -> None | tuple[int, ModuleTestResult | None]:
         module_test_result = ModuleTestResult.from_file(str(path))
 
     except Exception as e:
-        print(f"{e}. Discarding file")
+        logger.info(f"{e}. Discarding file")
         return None
 
-    # print(f"{path} -> Done")
+    logger.debug(f"{path} -> Done")
     return cbm_sts_address, module_test_result
 
 
@@ -208,7 +181,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--db",
-        default="collect_test/file_index.db",
+        default="module_test/file_index.db",
         help="Data base for files index (avoid file ssytem scanning)",
     )
 
@@ -221,11 +194,7 @@ if __name__ == "__main__":
             raise ValueError(f"Directory does not exist: {root}")
 
         conn = init_db(args.db)
-        paths = db_module_test_files(
-            conn,
-            host=args.host,
-            remote_root=args.path,
-        )
+        paths = get_all_files(conn)
 
         # Mount remoted if needed and provide path relative to mount point
         if args.host is not None:
@@ -235,14 +204,14 @@ if __name__ == "__main__":
             paths = [mount_point / Path(rf).relative_to(args.path) for rf in paths]
 
 
-        print(f"Found {len(paths)} test file to be collected...")
-        print("Starting processing files ...")
+        logger.info(f"Found {len(paths)} test file to be collected...")
+        logger.info("Starting processing files ...")
 
         with ThreadPoolExecutor(max_workers=32) as executor:
             results = executor.map(process, paths)
 
-        print(f"Inactive channels will be written to: {CHANNEL_MASK_FILE}")
-        print(f"ASIC configuration will be written to: {CHARGE_CALIB_FILE}")
+        logger.info(f"Inactive channels will be written to: {CHANNEL_MASK_FILE}")
+        logger.info(f"ASIC configuration will be written to: {CHARGE_CALIB_FILE}")
         channel_mask_file = open(CHANNEL_MASK_FILE, "w")
         charge_calib_file = open(CHARGE_CALIB_FILE, "w")
 
@@ -291,12 +260,12 @@ if __name__ == "__main__":
             charge_calib_file.write(asic_par_input(address, 0, -1, enc_n_side.value, gain_n_side.value) + "\n")
             charge_calib_file.write(asic_par_input(address, 1, -1, enc_p_side.value, gain_p_side.value) + "\n")
 
-        print(f"Dumping address building to: {ADDRESS_DUMP_FILE}")
+        logger.info(f"Dumping address building to: {ADDRESS_DUMP_FILE}")
         with open(ADDRESS_DUMP_FILE, "w") as dump:
             for k, v in sts_naming.STS_NAME_TO_ADDRESS_DUMP.items():
                 dump.write(f"{k}\t{v}\n")
 
     except KeyboardInterrupt:
-        print("Aborting ...")
+        logger.info("Aborting ...")
     except Exception as e:
-        print(e)
+        logger.warning(e)
