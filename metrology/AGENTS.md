@@ -1,0 +1,7 @@
+- The predominant code style shuold pursue code clarity, maintenability and simplicity.
+- This project is intended to develop the interface between detector alignment algorithm and metrology.
+- The detector alignment is performed by an external software, which only sets the data structure needed as input.
+- The metrology is perform for diferent level (mother-daugther relation within a geometry). It consist of measurement of detector elements and the corresponding uncertainties.
+- It handles the storage of the metrology output files, validation and integrity of the data.
+- Models for each data structure is provided.
+- Measurement can be performed multiple times for a single marker.

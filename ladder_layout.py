@@ -74,7 +74,7 @@ class LadderLayout:
     
         return bboxes
         
-    def draw(self) -> None:
+    def draw(self):
         """
         Draw the ladder layout.
         """
@@ -128,6 +128,8 @@ class LadderLayout:
         
         ax.set_aspect('equal')
         ax.autoscale()
+
+        return fig
 
     def to_dict(self):
         return {
@@ -251,7 +253,22 @@ def generate_ladders_layout() -> dict[str, list[str]]:
     
     
     return layouts
-        
+
 if __name__ == "__main__":
-    generate_ladders_layout()
+    # generate_ladders_layout()
+
+    conn = get_conn()
+    ladder_list = list_ladder_names(conn)
+
+    layouts = [(ladder_name, ladder_layout(ladder_name, conn)) for ladder_name in ladder_list]
+    
+
+    with open("output/layouts.txt", 'w') as f:
+        for name, layout in layouts:
+            f.write(f"{name}, {layout.sensor_positions()}\n")
+            fig = layout.draw()
+            fig.savefig(f"output/{name}.png")
+            
+        
+    
     

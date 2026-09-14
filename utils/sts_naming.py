@@ -135,39 +135,80 @@ def make_sts_address(
     side: int = 0,
     version: int = 1,
 ) -> int:
-    # ECbmModuleId::kSts in C++
-    STS_SYSTEM_ID = 2
+    STS_SYSTEM_ID = 2  # ECbmModuleId::kSts
 
-    # bit limits from C++
-    if not (0 <= unit < 64):
-        raise ValueError("unit out of range")
-    if not (0 <= ladder < 32):
-        raise ValueError("ladder out of range")
-    if not (0 <= half_ladder < 2):
-        raise ValueError("half_ladder out of range")
-    if not (0 <= module < 32):
-        raise ValueError("module out of range")
-    if not (0 <= sensor < 16):
-        raise ValueError("sensor out of range")
-    if not (0 <= side < 2):
-        raise ValueError("side out of range")
-    if not (0 <= version < 16):
-        raise ValueError("version out of range")
+    BITS = {
+        0: {
+            "system": 4,
+            "unit": 4,
+            "ladder": 4,
+            "half_ladder": 1,
+            "module": 3,
+            "sensor": 2,
+            "side": 1,
+        },
+        1: {
+            "system": 4,
+            "unit": 6,
+            "ladder": 5,
+            "half_ladder": 1,
+            "module": 5,
+            "sensor": 4,
+            "side": 1,
+        },
+    }
 
-    # creo que el problema era el orden de las operaciones, sin parentesis el shift tiene prioridad ante el and
-    # ahora esta bien
-    address = (
-        STS_SYSTEM_ID
-        | ((unit & 0x3F) << 4)
-        | ((ladder & 0x1F) << 10)
-        | ((half_ladder & 0x1) << 15)
-        | ((module & 0x1F) << 16)
-        | ((sensor & 0xF) << 21)
-        | ((side & 0x1) << 25)
-        | ((version & 0xF) << 28)
-    )
+    SHIFTS = {
+        0: {
+            "system": 0,
+            "unit": 4,
+            "ladder": 8,
+            "half_ladder": 12,
+            "module": 13,
+            "sensor": 16,
+            "side": 18,
+        },
+        1: {
+            "system": 0,
+            "unit": 4,
+            "ladder": 10,
+            "half_ladder": 15,
+            "module": 16,
+            "sensor": 21,
+            "side": 25,
+        },
+    }
 
-    # keep lower 4 bytes
+    if version not in BITS:
+        raise ValueError(
+            f"Unsupported STS address version {version}. "
+            f"CbmStsAddress supports versions 0 and 1."
+        )
+
+    values = {
+        "unit": unit,
+        "ladder": ladder,
+        "half_ladder": half_ladder,
+        "module": module,
+        "sensor": sensor,
+        "side": side,
+    }
+
+    for field, value in values.items():
+        max_value = (1 << BITS[version][field]) - 1
+        if value < 0 or value > max_value:
+            raise ValueError(
+                f"{field} Id {value} exceeds maximum {max_value} "
+                f"for STS address version {version}"
+            )
+
+    address = STS_SYSTEM_ID << SHIFTS[version]["system"]
+
+    for field, value in values.items():
+        address |= value << SHIFTS[version][field]
+
+    address |= version << 28
+
     return address & 0xFFFFFFFF
 
 STS_NAME_TO_ADDRESS_DUMP = {}
@@ -254,6 +295,34 @@ def print_sts_bits(address: int) -> None:
     print(f"side        : {side}")
     print(f"version     : {version}")
 
+
+def decode_sts_address(address: int) -> dict:
+    address &= 0xFFFFFFFF
+
+    version = (address >> 28) & 0xF
+
+    if version != 1:
+        raise ValueError(f"Unsupported STS address version: {version}")
+
+    return {
+        "system": (address >> 0) & 0xF,
+        "unit": (address >> 4) & 0x3F,
+        "ladder": (address >> 10) & 0x1F,
+        "half_ladder": (address >> 15) & 0x1,
+        "module": (address >> 16) & 0x1F,
+        "sensor": (address >> 21) & 0xF,
+        "side": (address >> 25) & 0x1,
+        "version": version,
+    }
+
+
+def is_valid_sts_address(address: int) -> bool:
+    try:
+        decoded = decode_sts_address(address)
+    except ValueError:
+        return False
+
+    return decoded["system"] == 2
 
 if __name__ == "__main__":
     print(hex(convert_to_cbm_sts_address("M5DL1B2001162B2")))
