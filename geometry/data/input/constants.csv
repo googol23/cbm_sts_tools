@@ -1,0 +1,458 @@
+Group,Variable,Configured value,Purpose (max 10 words)
+
+
+CFSupport,CFSupport::windingThickness,0.05,c f support::winding thickness
+CFSupport,CFSupport::cutoutHeight,2.8,c f support::cutout height
+CFSupport,CFSupport::cutoutInnerThickness,0.028,c f support::cutout inner thickness
+CFSupport,CFSupport::cutoutOuterThickness,0.028,c f support::cutout outer thickness
+CFSupport,CFSupport::cutoutBaseThickness,0.078,c f support::cutout base thickness
+CFSupport,CFSupport::cutoutCapThickness,0.028,c f support::cutout cap thickness
+CFSupport,CFSupport::cutoutBaseDeltaR,1.1,c f support::cutout base delta r
+
+
+Geometry / materials,fCframeThickness,1.5,C-frame thickness
+Geometry / materials,fFirstLadderOffsetX,0.0,Initial ladder X offset
+Geometry / materials,fFirstLadderOffsetY,0.0,Initial ladder Y offset
+Geometry / materials,fFirstLadderOffsetZ,0.0,Initial ladder Z offset
+
+Geometry / materials,fLadderCframeGapZ,0.615,Ladder-to-C-frame separation along Z
+Geometry / materials,fLadderGapZ,0.35,Ladder separation along Z
+
+Geometry / materials,fStsOffsetZ,-14.00 - 5.25 = -19.25,STS global Z offset; station and C-frame alignment
+
+C-frame spacings,fCframeC2CSpacing[0],0.0,STS-local origin
+C-frame spacings,fCframeC2CSpacing[1],10.5,Consecutive C-frame center spacing
+C-frame spacings,fCframeC2CSpacing[2],10.5,Consecutive C-frame center spacing
+C-frame spacings,fCframeC2CSpacing[3],10.5,Consecutive C-frame center spacing
+C-frame spacings,fCframeC2CSpacing[4],2.0,Consecutive C-frame center spacing
+C-frame spacings,fCframeC2CSpacing[5],10.5,Consecutive C-frame center spacing
+C-frame spacings,fCframeC2CSpacing[6],10.5,Consecutive C-frame center spacing
+C-frame spacings,fCframeC2CSpacing[7],10.5,Consecutive C-frame center spacing
+C-frame spacings,fCframeC2CSpacing[8],10.5,Consecutive C-frame center spacing
+C-frame spacings,fCframeC2CSpacing[9],10.5,Consecutive C-frame center spacing
+
+
+Ladder instances,fLadders[L0DL000150].length,48.0,Ladder length
+Ladder instances,fLadders[L0DL000150].cutoutSize,5.7,Ladder support cutout size
+Ladder instances,fLadders[L0DL000150].halfLadderOffsetY,0.5 * 5.7,Half-ladder Y offset
+Ladder instances,fLadders[L0DL000150].layout,k62_22 k62_42 k62_62 k62_62 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L0DL200109].length,48.0,Ladder length
+Ladder instances,fLadders[L0DL200109].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L0DL200109].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L0DL200109].layout,k62_22 k62_22 k62_42 k62_62 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L0DR100009].length,48.0,Ladder length
+Ladder instances,fLadders[L0DR100009].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L0DR100009].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L0DR100009].layout,k62_22 k62_22 k62_42 k62_62 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L0DR300010].length,48.0,Ladder length
+Ladder instances,fLadders[L0DR300010].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L0DR300010].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L0DR300010].layout,k62_22 k62_22 k62_42 k62_42 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L1DL100109].length,48.0,Ladder length
+Ladder instances,fLadders[L1DL100109].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L1DL100109].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L1DL100109].layout,k62_22 k62_22 k62_42 k62_62 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L1DL300110].length,48.0,Ladder length
+Ladder instances,fLadders[L1DL300110].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L1DL300110].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L1DL300110].layout,k62_22 k62_22 k62_42 k62_42 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L1DL500111].length,48.0,Ladder length
+Ladder instances,fLadders[L1DL500111].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L1DL500111].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L1DL500111].layout,k62_42 k62_42 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L1DR000051].length,48.0,Ladder length
+Ladder instances,fLadders[L1DR000051].cutoutSize,6.3,Ladder support cutout size
+Ladder instances,fLadders[L1DR000051].halfLadderOffsetY,0.5 * 6.3,Half-ladder Y offset
+Ladder instances,fLadders[L1DR000051].layout,k62_22 k62_42 k62_62 k62_62 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L1DR200009].length,48.0,Ladder length
+Ladder instances,fLadders[L1DR200009].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L1DR200009].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L1DR200009].layout,k62_22 k62_22 k62_42 k62_62 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L1DR400010].length,48.0,Ladder length
+Ladder instances,fLadders[L1DR400010].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L1DR400010].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L1DR400010].layout,k62_22 k62_22 k62_42 k62_42 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L1UL101009].length,48.0,Ladder length
+Ladder instances,fLadders[L1UL101009].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L1UL101009].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L1UL101009].layout,k62_22 k62_22 k62_42 k62_62 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L1UL301010].length,48.0,Ladder length
+Ladder instances,fLadders[L1UL301010].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L1UL301010].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L1UL301010].layout,k62_22 k62_22 k62_42 k62_42 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L1UR001151].length,48.0,Ladder length
+Ladder instances,fLadders[L1UR001151].cutoutSize,6.3,Ladder support cutout size
+Ladder instances,fLadders[L1UR001151].halfLadderOffsetY,0.5 * 6.3,Half-ladder Y offset
+Ladder instances,fLadders[L1UR001151].layout,k62_22 k62_42 k62_62 k62_62 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L1UR201109].length,48.0,Ladder length
+Ladder instances,fLadders[L1UR201109].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L1UR201109].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L1UR201109].layout,k62_22 k62_22 k62_42 k62_62 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L2DL000153].length,66.8,Ladder length
+Ladder instances,fLadders[L2DL000153].cutoutSize,6.9,Ladder support cutout size
+Ladder instances,fLadders[L2DL000153].halfLadderOffsetY,0.5 * 6.9,Half-ladder Y offset
+Ladder instances,fLadders[L2DL000153].layout,k62_42 k62_42 k62_62 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L2DL200112].length,66.8,Ladder length
+Ladder instances,fLadders[L2DL200112].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L2DL200112].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L2DL200112].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L2DL400113].length,66.8,Ladder length
+Ladder instances,fLadders[L2DL400113].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L2DL400113].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L2DL400113].layout,k62_42 k62_42 k62_62 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L2DR100012].length,66.8,Ladder length
+Ladder instances,fLadders[L2DR100012].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L2DR100012].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L2DR100012].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L2DR300012].length,66.8,Ladder length
+Ladder instances,fLadders[L2DR300012].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L2DR300012].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L2DR300012].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L2DR500014].length,66.8,Ladder length
+Ladder instances,fLadders[L2DR500014].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L2DR500014].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L2DR500014].layout,k62_42 k62_62 k62_124 kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L2UL001052].length,66.8,Ladder length
+Ladder instances,fLadders[L2UL001052].cutoutSize,6.3,Ladder support cutout size
+Ladder instances,fLadders[L2UL001052].halfLadderOffsetY,0.5 * 6.3,Half-ladder Y offset
+Ladder instances,fLadders[L2UL001052].layout,k62_22 k62_42 k62_62 k62_62 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L2UL201028].length,66.8,Ladder length
+Ladder instances,fLadders[L2UL201028].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L2UL201028].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L2UL201028].layout,k62_22 k62_22 k62_42 k62_62 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L2UL401029].length,66.8,Ladder length
+Ladder instances,fLadders[L2UL401029].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L2UL401029].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L2UL401029].layout,k62_22 k62_22 k62_42 k62_42 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L2UR101128].length,66.8,Ladder length
+Ladder instances,fLadders[L2UR101128].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L2UR101128].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L2UR101128].layout,k62_22 k62_22 k62_42 k62_62 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L2UR301129].length,66.8,Ladder length
+Ladder instances,fLadders[L2UR301129].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L2UR301129].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L2UR301129].layout,k62_22 k62_22 k62_42 k62_42 k62_62,Ordered sensor types on ladder
+Ladder instances,fLadders[L2UR501130].length,66.8,Ladder length
+Ladder instances,fLadders[L2UR501130].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L2UR501130].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L2UR501130].layout,k62_42 k62_42 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L3DL100112].length,66.8,Ladder length
+Ladder instances,fLadders[L3DL100112].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3DL100112].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3DL100112].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L3DL300112].length,66.8,Ladder length
+Ladder instances,fLadders[L3DL300112].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3DL300112].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3DL300112].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L3DL500114].length,66.8,Ladder length
+Ladder instances,fLadders[L3DL500114].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3DL500114].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3DL500114].layout,k62_42 k62_62 k62_124 kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L3DR000054].length,66.8,Ladder length
+Ladder instances,fLadders[L3DR000054].cutoutSize,7.6,Ladder support cutout size
+Ladder instances,fLadders[L3DR000054].halfLadderOffsetY,0.5 * 7.6,Half-ladder Y offset
+Ladder instances,fLadders[L3DR000054].layout,k62_42 k62_42 k62_62 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L3DR200012].length,66.8,Ladder length
+Ladder instances,fLadders[L3DR200012].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3DR200012].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3DR200012].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L3DR400013].length,66.8,Ladder length
+Ladder instances,fLadders[L3DR400013].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3DR400013].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3DR400013].layout,k62_42 k62_42 k62_62 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L3DR600015].length,66.8,Ladder length
+Ladder instances,fLadders[L3DR600015].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3DR600015].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3DR600015].layout,k62_62 k62_62 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L3UL101012].length,66.8,Ladder length
+Ladder instances,fLadders[L3UL101012].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3UL101012].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3UL101012].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L3UL301012].length,66.8,Ladder length
+Ladder instances,fLadders[L3UL301012].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3UL301012].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3UL301012].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L3UL501014].length,66.8,Ladder length
+Ladder instances,fLadders[L3UL501014].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3UL501014].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3UL501014].layout,k62_42 k62_62 k62_124 kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L3UR001154].length,66.8,Ladder length
+Ladder instances,fLadders[L3UR001154].cutoutSize,7.6,Ladder support cutout size
+Ladder instances,fLadders[L3UR001154].halfLadderOffsetY,0.5 * 7.6,Half-ladder Y offset
+Ladder instances,fLadders[L3UR001154].layout,k62_42 k62_42 k62_62 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L3UR201112].length,66.8,Ladder length
+Ladder instances,fLadders[L3UR201112].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3UR201112].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3UR201112].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L3UR401113].length,66.8,Ladder length
+Ladder instances,fLadders[L3UR401113].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L3UR401113].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L3UR401113].layout,k62_42 k62_42 k62_62 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L4DL000161].length,81.8,Ladder length
+Ladder instances,fLadders[L4DL000161].cutoutSize,8.2,Ladder support cutout size
+Ladder instances,fLadders[L4DL000161].halfLadderOffsetY,0.5 * 8.2,Half-ladder Y offset
+Ladder instances,fLadders[L4DL000161].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L4DL200116].length,81.8,Ladder length
+Ladder instances,fLadders[L4DL200116].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4DL200116].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4DL200116].layout,k62_42 k62_42 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L4DL400117].length,81.8,Ladder length
+Ladder instances,fLadders[L4DL400117].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4DL400117].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4DL400117].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L4DL600119].length,81.8,Ladder length
+Ladder instances,fLadders[L4DL600119].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4DL600119].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4DL600119].layout,k62_124 k62_124 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L4DR100016].length,81.8,Ladder length
+Ladder instances,fLadders[L4DR100016].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4DR100016].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4DR100016].layout,k62_42 k62_42 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L4DR300017].length,81.8,Ladder length
+Ladder instances,fLadders[L4DR300017].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4DR300017].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4DR300017].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L4DR500018].length,81.8,Ladder length
+Ladder instances,fLadders[L4DR500018].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4DR500018].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4DR500018].layout,k62_62 k62_124 k62_124 kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L4UL001055].length,81.8,Ladder length
+Ladder instances,fLadders[L4UL001055].cutoutSize,8.2,Ladder support cutout size
+Ladder instances,fLadders[L4UL001055].halfLadderOffsetY,0.5 * 8.2,Half-ladder Y offset
+Ladder instances,fLadders[L4UL001055].layout,k62_42 k62_42 k62_62 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L4UL201031].length,81.8,Ladder length
+Ladder instances,fLadders[L4UL201031].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4UL201031].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4UL201031].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L4UL401032].length,81.8,Ladder length
+Ladder instances,fLadders[L4UL401032].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4UL401032].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4UL401032].layout,k62_42 k62_42 k62_62 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L4UL601034].length,81.8,Ladder length
+Ladder instances,fLadders[L4UL601034].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4UL601034].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4UL601034].layout,k62_62 k62_62 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L4UR101131].length,81.8,Ladder length
+Ladder instances,fLadders[L4UR101131].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4UR101131].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4UR101131].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L4UR301131].length,81.8,Ladder length
+Ladder instances,fLadders[L4UR301131].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4UR301131].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4UR301131].layout,k62_42 k62_42 k62_42 k62_62 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L4UR501133].length,81.8,Ladder length
+Ladder instances,fLadders[L4UR501133].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L4UR501133].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L4UR501133].layout,k62_42 k62_62 k62_124 kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L5DL100116].length,81.8,Ladder length
+Ladder instances,fLadders[L5DL100116].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5DL100116].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5DL100116].layout,k62_42 k62_42 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L5DL300117].length,81.8,Ladder length
+Ladder instances,fLadders[L5DL300117].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5DL300117].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5DL300117].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L5DL500118].length,81.8,Ladder length
+Ladder instances,fLadders[L5DL500118].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5DL500118].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5DL500118].layout,k62_62 k62_124 k62_124 kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L5DR000056].length,81.8,Ladder length
+Ladder instances,fLadders[L5DR000056].cutoutSize,8.9,Ladder support cutout size
+Ladder instances,fLadders[L5DR000056].halfLadderOffsetY,0.5 * 8.9,Half-ladder Y offset
+Ladder instances,fLadders[L5DR000056].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L5DR200016].length,81.8,Ladder length
+Ladder instances,fLadders[L5DR200016].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5DR200016].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5DR200016].layout,k62_42 k62_42 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L5DR400017].length,81.8,Ladder length
+Ladder instances,fLadders[L5DR400017].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5DR400017].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5DR400017].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L5DR600019].length,81.8,Ladder length
+Ladder instances,fLadders[L5DR600019].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5DR600019].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5DR600019].layout,k62_124 k62_124 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L5UL101016].length,81.8,Ladder length
+Ladder instances,fLadders[L5UL101016].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5UL101016].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5UL101016].layout,k62_42 k62_42 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L5UL301017].length,81.8,Ladder length
+Ladder instances,fLadders[L5UL301017].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5UL301017].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5UL301017].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L5UL501018].length,81.8,Ladder length
+Ladder instances,fLadders[L5UL501018].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5UL501018].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5UL501018].layout,k62_62 k62_124 k62_124 kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L5UR001156].length,81.8,Ladder length
+Ladder instances,fLadders[L5UR001156].cutoutSize,8.9,Ladder support cutout size
+Ladder instances,fLadders[L5UR001156].halfLadderOffsetY,0.5 * 8.9,Half-ladder Y offset
+Ladder instances,fLadders[L5UR001156].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L5UR201116].length,81.8,Ladder length
+Ladder instances,fLadders[L5UR201116].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5UR201116].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5UR201116].layout,k62_42 k62_42 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L5UR401117].length,81.8,Ladder length
+Ladder instances,fLadders[L5UR401117].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5UR401117].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5UR401117].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L5UR601119].length,81.8,Ladder length
+Ladder instances,fLadders[L5UR601119].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L5UR601119].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L5UR601119].layout,k62_124 k62_124 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L6DL000158].length,89.2,Ladder length
+Ladder instances,fLadders[L6DL000158].cutoutSize,9.56,Ladder support cutout size
+Ladder instances,fLadders[L6DL000158].halfLadderOffsetY,0.5 * 9.56,Half-ladder Y offset
+Ladder instances,fLadders[L6DL000158].layout,k62_42 k62_42 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L6DL200120].length,89.2,Ladder length
+Ladder instances,fLadders[L6DL200120].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6DL200120].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6DL200120].layout,k62_22 k62_42 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L6DL400120].length,89.2,Ladder length
+Ladder instances,fLadders[L6DL400120].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6DL400120].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6DL400120].layout,k62_22 k62_42 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L6DL600127].length,89.2,Ladder length
+Ladder instances,fLadders[L6DL600127].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6DL600127].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6DL600127].layout,k62_124 k62_124 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L6DR100020].length,89.2,Ladder length
+Ladder instances,fLadders[L6DR100020].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6DR100020].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6DR100020].layout,k62_22 k62_42 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L6DR300020].length,89.2,Ladder length
+Ladder instances,fLadders[L6DR300020].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6DR300020].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6DR300020].layout,k62_22 k62_42 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L6DR500025].length,89.2,Ladder length
+Ladder instances,fLadders[L6DR500025].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6DR500025].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6DR500025].layout,k62_62 k62_124 k62_124 kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L6DR700021].length,89.2,Ladder length
+Ladder instances,fLadders[L6DR700021].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6DR700021].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6DR700021].layout,k62_124 kNone kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L6UL001057].length,89.2,Ladder length
+Ladder instances,fLadders[L6UL001057].cutoutSize,9.56,Ladder support cutout size
+Ladder instances,fLadders[L6UL001057].halfLadderOffsetY,0.5 * 9.56,Half-ladder Y offset
+Ladder instances,fLadders[L6UL001057].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L6UL201035].length,89.2,Ladder length
+Ladder instances,fLadders[L6UL201035].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6UL201035].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6UL201035].layout,k62_42 k62_42 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L6UL401036].length,89.2,Ladder length
+Ladder instances,fLadders[L6UL401036].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6UL401036].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6UL401036].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L6UL601038].length,89.2,Ladder length
+Ladder instances,fLadders[L6UL601038].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6UL601038].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6UL601038].layout,k62_124 k62_124 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L6UR101135].length,89.2,Ladder length
+Ladder instances,fLadders[L6UR101135].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6UR101135].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6UR101135].layout,k62_42 k62_42 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L6UR301136].length,89.2,Ladder length
+Ladder instances,fLadders[L6UR301136].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6UR301136].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6UR301136].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L6UR501137].length,89.2,Ladder length
+Ladder instances,fLadders[L6UR501137].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L6UR501137].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L6UR501137].layout,k62_62 k62_124 k62_124 kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L7DL100122].length,96.7,Ladder length
+Ladder instances,fLadders[L7DL100122].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7DL100122].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7DL100122].layout,k62_42 k62_62 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L7DL300122].length,96.7,Ladder length
+Ladder instances,fLadders[L7DL300122].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7DL300122].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7DL300122].layout,k62_42 k62_62 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L7DL500123].length,96.7,Ladder length
+Ladder instances,fLadders[L7DL500123].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7DL500123].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7DL500123].layout,k62_42 k62_62 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L7DL700126].length,96.7,Ladder length
+Ladder instances,fLadders[L7DL700126].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7DL700126].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7DL700126].layout,k62_124 k62_124 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L7DR000060].length,96.7,Ladder length
+Ladder instances,fLadders[L7DR000060].cutoutSize,10.2,Ladder support cutout size
+Ladder instances,fLadders[L7DR000060].halfLadderOffsetY,0.5 * 10.2,Half-ladder Y offset
+Ladder instances,fLadders[L7DR000060].layout,k62_42 k62_124 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L7DR200022].length,96.7,Ladder length
+Ladder instances,fLadders[L7DR200022].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7DR200022].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7DR200022].layout,k62_42 k62_62 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L7DR400022].length,96.7,Ladder length
+Ladder instances,fLadders[L7DR400022].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7DR400022].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7DR400022].layout,k62_42 k62_62 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L7DR600024].length,96.7,Ladder length
+Ladder instances,fLadders[L7DR600024].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7DR600024].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7DR600024].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L7UL101039].length,96.7,Ladder length
+Ladder instances,fLadders[L7UL101039].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7UL101039].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7UL101039].layout,k62_22 k62_42 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L7UL301039].length,96.7,Ladder length
+Ladder instances,fLadders[L7UL301039].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7UL301039].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7UL301039].layout,k62_22 k62_42 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L7UL501040].length,96.7,Ladder length
+Ladder instances,fLadders[L7UL501040].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7UL501040].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7UL501040].layout,k62_62 k62_124 k62_124 kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L7UL701041].length,96.7,Ladder length
+Ladder instances,fLadders[L7UL701041].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7UL701041].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7UL701041].layout,k62_124 kNone kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L7UR001159].length,96.7,Ladder length
+Ladder instances,fLadders[L7UR001159].cutoutSize,9.7,Ladder support cutout size
+Ladder instances,fLadders[L7UR001159].halfLadderOffsetY,0.5 * 9.7,Half-ladder Y offset
+Ladder instances,fLadders[L7UR001159].layout,k62_42 k62_42 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L7UR201139].length,96.7,Ladder length
+Ladder instances,fLadders[L7UR201139].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7UR201139].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7UR201139].layout,k62_22 k62_42 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L7UR401139].length,96.7,Ladder length
+Ladder instances,fLadders[L7UR401139].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7UR401139].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7UR401139].layout,k62_22 k62_42 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L7UR601126].length,96.7,Ladder length
+Ladder instances,fLadders[L7UR601126].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L7UR601126].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L7UR601126].layout,k62_124 k62_124 kNone kNone kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L8UL001060].length,96.7,Ladder length
+Ladder instances,fLadders[L8UL001060].cutoutSize,10.2,Ladder support cutout size
+Ladder instances,fLadders[L8UL001060].halfLadderOffsetY,0.5 * 10.2,Half-ladder Y offset
+Ladder instances,fLadders[L8UL001060].layout,k62_42 k62_124 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L8UL201022].length,96.7,Ladder length
+Ladder instances,fLadders[L8UL201022].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L8UL201022].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L8UL201022].layout,k62_42 k62_62 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L8UL401022].length,96.7,Ladder length
+Ladder instances,fLadders[L8UL401022].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L8UL401022].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L8UL401022].layout,k62_42 k62_62 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L8UL601024].length,96.7,Ladder length
+Ladder instances,fLadders[L8UL601024].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L8UL601024].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L8UL601024].layout,k62_42 k62_62 k62_124 k62_124 kNone,Ordered sensor types on ladder
+Ladder instances,fLadders[L8UR101122].length,96.7,Ladder length
+Ladder instances,fLadders[L8UR101122].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L8UR101122].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L8UR101122].layout,k62_42 k62_62 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L8UR301122].length,96.7,Ladder length
+Ladder instances,fLadders[L8UR301122].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L8UR301122].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L8UR301122].layout,k62_42 k62_62 k62_124 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L8UR501123].length,96.7,Ladder length
+Ladder instances,fLadders[L8UR501123].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L8UR501123].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L8UR501123].layout,k62_42 k62_62 k62_62 k62_124 k62_124,Ordered sensor types on ladder
+Ladder instances,fLadders[L8UR701126].length,96.7,Ladder length
+Ladder instances,fLadders[L8UR701126].cutoutSize,0.0,Ladder support cutout size
+Ladder instances,fLadders[L8UR701126].halfLadderOffsetY,-0.5 * fLadderSensorOverlapY,Half-ladder Y offset
+Ladder instances,fLadders[L8UR701126].layout,k62_124 k62_124 kNone kNone kNone,Ordered sensor types on ladder
